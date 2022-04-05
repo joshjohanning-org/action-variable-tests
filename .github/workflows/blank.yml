@@ -16,7 +16,7 @@ on:
 env:
   variable1: value
   variable2: value
-  variable3: $variable1-variable2
+  variable3: $variable1-$variable2
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
