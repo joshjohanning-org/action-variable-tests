@@ -17,6 +17,9 @@ env:
   variable1: value1
   variable2: value2
   variable3: $variable1-$variable2
+  org: joshjohanning-org
+  repo: action-variable-tests
+  combined: $org/$repo
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -32,3 +35,18 @@ jobs:
           echo ${{ env.variable1 }}
           echo $variable2
           echo ${{ env.variable3 }}
+          
+      - run: | 
+         echo "variable1=newvalue" >> $GITHUB_ENV
+         
+      - run: |
+          echo ${{ env.variable1 }}
+          echo $variable2
+          echo ${{ env.variable3 }}
+          
+      - name: Checkout
+        uses: actions/checkout@v3.0.0
+        with: 
+          # Repository name with owner. For example, actions/checkout
+          repository: ${{ env.combined }}
+
