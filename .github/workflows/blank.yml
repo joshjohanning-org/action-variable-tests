@@ -44,6 +44,9 @@ jobs:
           echo $variable2
           echo ${{ env.variable3 }}
           
+      - run: |
+          echo "combined=$org/$repo" >> $GITHUB_ENV
+          
       - name: Checkout
         uses: actions/checkout@v3.0.0
         with: 
