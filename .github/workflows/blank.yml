@@ -47,6 +47,9 @@ jobs:
       - name: Dump GitHub context
         id: github_context_step
         run: echo '${{ toJSON(github) }}'
+        
+      - name: dump github env variables
+        run: echo "${{ github.env }}"
           
       - run: |
           echo "combined=$org/$repo" >> $GITHUB_ENV
