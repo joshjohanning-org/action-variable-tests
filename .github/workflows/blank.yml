@@ -52,7 +52,7 @@ jobs:
         run: |
           echo "${{ github.env }}"
           # cat ${{ github.env }} # doesn't work
-          printenv | less
+          printenv | less | sort
           
       - run: |
           echo "combined=$org/$repo" >> $GITHUB_ENV
