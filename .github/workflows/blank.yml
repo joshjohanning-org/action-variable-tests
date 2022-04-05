@@ -44,9 +44,14 @@ jobs:
           echo $variable2
           echo ${{ env.variable3 }}
           
+      - name: Dump GitHub context
+        id: github_context_step
+        run: echo '${{ toJSON(github) }}'
+          
       - run: |
           echo "combined=$org/$repo" >> $GITHUB_ENV
           # loop through the github env variables and re-set them all to >> $GITHUB_ENV
+          echo 
           
       - name: Checkout
         uses: actions/checkout@v3.0.0
