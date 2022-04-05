@@ -49,7 +49,9 @@ jobs:
         run: echo '${{ toJSON(github) }}'
         
       - name: dump github env variables
-        run: echo "${{ github.env }}"
+        run: |
+          echo "${{ github.env }}"
+          cat ${{ github.env }}
           
       - run: |
           echo "combined=$org/$repo" >> $GITHUB_ENV
