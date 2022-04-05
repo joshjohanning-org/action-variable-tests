@@ -51,7 +51,8 @@ jobs:
       - name: dump github env variables
         run: |
           echo "${{ github.env }}"
-          cat ${{ github.env }}
+          # cat ${{ github.env }} # doesn't work
+          printenv | less
           
       - run: |
           echo "combined=$org/$repo" >> $GITHUB_ENV
