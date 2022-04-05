@@ -46,6 +46,7 @@ jobs:
           
       - run: |
           echo "combined=$org/$repo" >> $GITHUB_ENV
+          # loop through the github env variables and re-set them all to >> $GITHUB_ENV
           
       - name: Checkout
         uses: actions/checkout@v3.0.0
