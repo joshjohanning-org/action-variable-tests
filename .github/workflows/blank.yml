@@ -54,6 +54,9 @@ jobs:
           # cat ${{ github.env }} # doesn't work
           printenv | less | sort
           
+      - name: cat github_env
+        run: cat $GITHUB_ENV
+        
       - run: |
           echo "combined=$org/$repo" >> $GITHUB_ENV
           # loop through the github env variables and re-set them all to >> $GITHUB_ENV
