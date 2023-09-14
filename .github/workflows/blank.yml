@@ -21,6 +21,9 @@ env:
   repo: action-variable-tests
   combined: $org/$repo
   test: 'https://${{ vars.test }}.com'
+  myvar1: value
+  myvar2: other
+  myvar3: ${{ env.myvar1 }}-${{ env.myvar2 }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -31,6 +34,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - run: |
+          echo $myvar1
+          echo $myvar2
+          echo $myvar3
       - run: echo "$test"
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - run: |
