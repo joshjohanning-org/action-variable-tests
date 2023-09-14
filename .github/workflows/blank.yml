@@ -24,6 +24,7 @@ env:
   myvar1: value
   myvar2: other
   myvar3: $myvar1-$myvar2
+  # myvar3: ${{ env.myvar1 }}-${{ env.myvar2 }} # this does not work, workflow error
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
