@@ -56,8 +56,9 @@ jobs:
           echo ${{ env.variable3 }}
           
       - name: Dump GitHub context
-        id: github_context_step
-        run: echo '${{ toJSON(github) }}'
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
         
       - name: dump github env variables
         run: |
