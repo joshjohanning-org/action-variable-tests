@@ -75,7 +75,7 @@ jobs:
           echo 
           
       - name: Checkout
-        uses: actions/checkout@v3.0.0
+        uses: actions/checkout@v4
         with: 
           # Repository name with owner. For example, actions/checkout
           repository: ${{ env.combined }}
