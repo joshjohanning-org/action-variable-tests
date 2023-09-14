@@ -38,6 +38,7 @@ jobs:
           echo $myvar1
           echo $myvar2
           echo $myvar3
+          echo ${{ env.myvar3 }}
       - run: echo "$test"
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - run: |
